@@ -201,14 +201,14 @@ func (s *Storage) GetAllVectors() ([]model.WordData, error) {
 func PopulateDB(s *Storage) error {
 	words := []string{
 		// colors
-		"red", "orange", "yellow", "green", "cyan", "blue", "purple",
+		// "red", "orange", "yellow", "green", "cyan", "blue", "purple",
 		// numbers
-		"zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
-		"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+		// "zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten",
+		// "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
 		// animals
 		"anteater", "ape", "armadillo", "baboon", "bat", "bear", "beetle", "bongo", "camel", "centipede", "chameleon", "cheetah", "cockatoo", "crane", "crocodile", "deer", "duck", "eagle", "elephant", "flamingo", "fox", "giraffe", "hamster", "hawk", "hermit crab",
 		"hippo", "hippopotamus", "horse", "hummingbird", "hyena", "iguana", "impala", "jaguar", "kangaroo", "kingfisher", "kite", "kiwi", "koala", "komodo dragon", "leopard", "lion", "lizard", "mole", "monkey", "newt", "opossum", "orangutan", "ostrich", "owl", "panda", "panther",
-		"parrot", "peakock", "penguin", "pigeon", "platypus", "puffin", "rabbit", "rattlesnake", "red panda", "reindeer", "rhinoceros", "scorpion", "seal", "snake", "sparrow", "squirrel", "swan", "tiger", "turkey", "turtle", "vulture", "walrus", "wolf", "woodpecker", "yak", "zebra",
+		// "parrot", "peakock", "penguin", "pigeon", "platypus", "puffin", "rabbit", "rattlesnake", "red panda", "reindeer", "rhinoceros", "scorpion", "seal", "snake", "sparrow", "squirrel", "swan", "tiger", "turkey", "turtle", "vulture", "walrus", "wolf", "woodpecker", "yak", "zebra",
 	}
 	for _, word := range words {
 		if err := s.SaveWord(word); err != nil {

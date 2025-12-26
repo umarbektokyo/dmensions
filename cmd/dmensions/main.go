@@ -186,12 +186,12 @@ func (s *AppState) drawSky() {
 		}
 
 		star := canvas.NewCircle(color.RGBA{80, 200, 255, 255})
-		star.Resize(fyne.NewSize(13, 13))
+		star.Resize(fyne.NewSize(8, 8))
 		star.Move(fyne.NewPos(screenX-3, screenY-3))
 
 		txt := canvas.NewText(s.getWordLabel(id), color.White)
-		txt.TextSize = 15
-		txt.Move(fyne.NewPos(screenX+15, screenY-5))
+		txt.TextSize = 10
+		txt.Move(fyne.NewPos(screenX+10, screenY-5))
 
 		s.skyContainer.Add(star)
 		s.skyContainer.Add(txt)
