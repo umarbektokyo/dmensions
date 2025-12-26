@@ -23,3 +23,10 @@ type OllamaEmbedRequest struct {
 type OllamaEmbedResponse struct {
 	Embeddings [][]float32 `json:"embeddings"`
 }
+
+// --- Visualisation --- //
+
+type Point2D struct {
+	X float64 `json:"x"`
+	Y float64 `json:"y"`
+}

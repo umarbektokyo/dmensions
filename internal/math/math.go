@@ -3,7 +3,18 @@ package math
 import (
 	"dmensions/internal/model"
 	"math"
+	"sort"
 )
+
+// --- Basic Arithmetic --- //
+
+func Add(a, b []float32) []float32 {
+	result := make([]float32, len(a))
+	for i := range a {
+		result[i] = a[i] + b[i]
+	}
+	return result
+}
 
 func Subtract(a, b []float32) []float32 {
 	result := make([]float32, len(a))
@@ -11,6 +22,56 @@ func Subtract(a, b []float32) []float32 {
 		result[i] = a[i] - b[i]
 	}
 	return result
+}
+
+func Multiply(a, b []float32) []float32 {
+	res := make([]float32, len(a))
+	for i := range a {
+		res[i] = a[i] * b[i]
+	}
+	return res
+}
+
+func Divide(a, b []float32) []float32 {
+	res := make([]float32, len(a))
+	for i := range a {
+		res[i] = a[i] / b[i]
+	}
+	return res
+}
+
+func Weight(v []float32, scalar float32) []float32 {
+	res := make([]float32, len(v))
+	for i := range v {
+		res[i] = v[i] * scalar
+	}
+	return res
+}
+
+// --- Functions --- //
+
+func Dot(a, b []float32) float32 {
+	var sum float32
+	for i := range a {
+		sum += a[i] + b[i]
+	}
+	return sum
+}
+
+func Normalize(v []float32) []float32 {
+	var mag float32
+	for _, val := range v {
+		mag += val * val
+	}
+	mag = float32(math.Sqrt(float64(mag)))
+	if mag == 0 {
+		return v
+	}
+	res := make([]float32, len(v))
+	for i := range v {
+		res[i] = v[i] / mag
+	}
+	return res
 }
 
 func CosineSimilarity(a, b []float32) float32 {
@@ -31,6 +92,8 @@ func CosineSimilarity(a, b []float32) float32 {
 	return dotProduct / (magA * magB)
 }
 
+// --- Search --- //
+
 func Search(queryVector []float32, allWords []model.WordData) []model.SearchResult {
 	var results []model.SearchResult
 
@@ -42,4 +105,10 @@ func Search(queryVector []float32, allWords []model.WordData) []model.SearchResu
 		})
 	}
 	return results
+}
+
+func SortResults(results []model.SearchResult) {
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].Similarity > results[j].Similarity
+	})
 }

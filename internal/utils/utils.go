@@ -1,11 +1,15 @@
 package utils
 
-import "fmt"
+import (
+	"fmt"
+)
 
-var VERSION string = "0.0.1"
-var AIURL string = "http://localhost:11434/api/embed"
-var AIMODEL string = "embeddinggemma"
-var ascii string = `
+// --- Constants --- //
+
+const VERSION string = "0.0.1"
+const AIURL string = "http://localhost:11434/api/embed"
+const AIMODEL string = "embeddinggemma"
+const ascii string = `
        /$$                                             /$$                              
       | $$                                            |__/                              
   /$$$$$$$ /$$$$$$/$$$$   /$$$$$$  /$$$$$$$   /$$$$$$$ /$$  /$$$$$$  /$$$$$$$   /$$$$$$$
@@ -17,5 +21,5 @@ var ascii string = `
 `
 
 func Splash() {
-	fmt.Println(ascii)
+	fmt.Print(ascii)
 }
